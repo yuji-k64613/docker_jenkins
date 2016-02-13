@@ -1,6 +1,5 @@
 FROM debian:latest
 MAINTAINER Yuji Konishi
-#EXPOSE 8080 8080
 
 RUN apt-get update
 RUN apt-get install -y git
@@ -15,7 +14,6 @@ RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key a
 RUN echo 'deb http://pkg.jenkins-ci.org/debian binary/' >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y jenkins
-RUN /etc/init.d/jenkins start
 
 ADD script.sh /tmp/script.sh
 CMD [ "/tmp/script.sh" ]
